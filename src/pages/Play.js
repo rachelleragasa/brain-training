@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useContext, useEffect, useState } from "react"
 
 import Button from "../components/Button/Button"
@@ -25,7 +26,6 @@ const Play = () => {
 
     const displayRandomSequence = () => {
         let sequence = getRandomSequence(15);
-        console.log(sequence);
 
         const charElement = document.getElementById('display-character');
 
@@ -56,10 +56,7 @@ const Play = () => {
 
         if (totalWrong >= 2) {
             clearTimeout(timeout);
-            console.log('inside totalWrong')
         }
-        console.log(`incorrect: ${totalWrong}`);
-        console.log(`correct: ${totalCorrect}`);
     }
 
     useEffect(() => {
