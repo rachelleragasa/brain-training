@@ -1,70 +1,53 @@
-# Getting Started with Create React App
+# Brain Training
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[View Demo](https://brain-training-game.netlify.app)
 
-## Available Scripts
+## Folder Structure
 
-In the project directory, you can run:
+The project is broken down into the below structure:
 
-### `npm start`
+```
+|-- src
+    |-- index.js
+    |-- components                      # React Components
+    |   |-- App
+    |   |-- |-- App.js
+    |   |-- |-- App.css
+    |   |-- Input
+    |   |-- |-- Input.js
+    |   |-- |-- Input.module.css
+    |-- contexts                        # Contexts contains any React Context data
+    |   |-- GlobalContext.js
+    |-- pages                           # Pages
+    |   |-- GetStarted.js               # /get-started
+    |   |-- Home.js                     # /
+    |   |-- Play.js                     # /play
+    |   |-- Results.js                  # /results
+    |-- styles                          # Generic Styles & Tailwind
+    |   |-- tailwind.css
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Tools and Tech
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- React
+- React-Router
+- Tailwind CSS
 
-### `npm test`
+### Styled Components Vs. CSS Modules
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Originally I wanted to use Styled Components to write the styles of the game with the thought that i'd potentially need to manipulate the css based on props however, I began to think that somewhere down the line I may need to use animations or generally for the page to load faster and be more performant thus the plain old CSS route.
 
-### `npm run build`
+## Improvements
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Terminate game and display results
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+My intention was to terminate the game if the following 2 conditions were met:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. 2 Errors were recorded
+2. The sequence has reached the end
 
-### `npm run eject`
+In order to achieve this, I was trying to use `clearTimeout()` in order to terminate the `setTimeout()` and then eventually route the user to `/results` using `useHistory()` from `react-router-dom`. Unfortuantely I wasn't able to achieve this.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Unit Tests
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+I would have liked to add unit tests.
